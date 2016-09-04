@@ -55,7 +55,8 @@ static const struct pcp_conf default_conf = {
 	3,
 	0,
 	1024,
-	0
+	0,
+	true
 };
 
 
@@ -84,7 +85,8 @@ static void destructor(void *arg)
 	struct pcp_request *req = arg;
 
 	/* Destroy the mapping if it was granted */
-	if (req->granted && req->lifetime && req->mb) {
+	if (req->granted && req->lifetime && req->mb &&
+	    req->conf.delete_mapping) {
 
 		/* set the lifetime to zero */
 		req->mb->pos = 4;

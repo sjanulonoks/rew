@@ -136,6 +136,7 @@ struct pcp_conf {
 	uint32_t mrc;  /**< Maximum retransmission count              */
 	uint32_t mrt;  /**< Maximum retransmission time [seconds]     */
 	uint32_t mrd;  /**< Maximum retransmission duration [seconds] */
+	bool delete_mapping;  /**< Delete mapping on destruction      */
 };
 
 
